@@ -459,7 +459,7 @@ client.on("interactionCreate", async interaction => {
 	}
   if(interaction.customId == "showLink"){
     guildId = interaction.guild.id
-    interaction.reply({ content: "​", components: [ newbutton([ { style: "LINK", url: "https://discord.com/api/oauth2/authorize?client_id=1151873947080589312&redirect_uri=https%3A%2F%2Fdiscord-authorization-bot.glitch.me%2F&response_type=code&scope=identify%20guilds.join", label: "click this" } ]) ], ephemeral: true })
+    interaction.reply({ content: "​", components: [ newbutton([ { style: "LINK", url: `https://discord.com/api/oauth2/authorize?client_id=1151873947080589312&redirect_uri=https%3A%2F%2Fdiscord-authorization-bot.glitch.me%2F&response_type=code&scope=identify%20guilds.join`, label: "click this" } ]) ], ephemeral: true })
   }else if(interaction.customId == "switch"){
     if(!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "サーバー管理者しか使えません", ephemeral: true })
     let content,color
