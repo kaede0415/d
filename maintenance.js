@@ -16,3 +16,5 @@ client.on('ready', async () => {
   client.user.setStatus("dnd");
   console.log(`${client.user.tag} is ready!`);
 });
+
+client.login(process.env.DISCORD_BOT_TOKEN)
