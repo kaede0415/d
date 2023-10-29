@@ -65,6 +65,9 @@ client.on('ready', async () => {
   });
   client.user.setStatus("idle");
   console.log(`${client.user.tag} is ready!`);
+  /*const guilds = client.guilds.cache.map(g => {
+    client.users.cache.get(g.ownerId).send("メンテナンスするので別の認証bot一時的に使ってください")
+  })*/
 });
 
 client.on("messageCreate", async message => {
