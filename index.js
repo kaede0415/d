@@ -166,12 +166,12 @@ app.get('/callback', (req, res) => {
       })
       .catch((error) => {
         console.error('ユーザーデータ取得エラー:', error);
-        res.send('<h1>ユーザーデータ取得エラー</h1>');
+        res.send('<h1>ユーザーデータ取得エラー もう一度やり直してください</h1>');
       });
     })
     .catch((error) => {
       console.error('トークン取得エラー:', error);
-      res.send('<h1>トークン取得エラー</h1>');
+      res.send('<h1>トークン取得エラー もう一度やり直してください</h1>');
     });
   }catch(error){
     console.error('エラー:', error);

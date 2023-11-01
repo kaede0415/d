@@ -72,7 +72,7 @@ module.exports = {
         .addField("追加済み",`${result[1]}人`)
         .addField("追加失敗",`${result[2]}人`)
         .setColor("RANDOM")
-        await interaction.editReply({ embeds: [ embed ] })
+        await interaction.editReply({ content: "<a:check:959821181719040120>終了", embeds: [ embed ] })
         const configData_ = fs.readFileSync(configPath, 'utf8');
         const config_ = JSON.parse(configData);
         config_.call_now = false;
