@@ -29,15 +29,12 @@ module.exports = {
     ],
   },
   async execute(interaction) {
-    const id = interaction.options.getString("id");
-    const admin = require("config.json").admin_list
-    if(!admin.includes(interaction.user.id)) return interaction.reply({ content: "BOT管理者しか使えません", ephemeral: true })
     const configData = fs.readFileSync("config.json", 'utf8');
     const config = JSON.parse(configData);
+    const id = interaction.options.getString("id");
+    const admin = config.admin_list
+    if(!admin.includes(interaction.user.id)) return interaction.reply({ content: "BOT管理者しか使えません", ephemeral: true })
     config.white_list.push(id);
-    fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
-
-console.log('要素が追加されました。');
-
+    fs.writeFileSync("config.json", JSON.stringify(config, null, 2), 'utf8');
   },
 };
