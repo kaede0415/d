@@ -63,21 +63,21 @@ module.exports = {
         }
         console.log(`${i}:${err.response.status}`)
       })
-      await wait(2500)
+      await wait(1000)
     }
     setTimeout(async function(){
       fs.writeFileSync("tokens.json", JSON.stringify(jsonData, null, 2), 'utf8');
-      const embed = new MessageEmbed()
+      /*const embed = new MessageEmbed()
       .setTitle("Call結果")
       .addField("追加成功",`${result[0]}人`)
       .addField("追加済み",`${result[1]}人`)
       .addField("追加失敗",`${result[2]}人`)
       .setColor("RANDOM")
-      await interaction.editReply({ embeds: [ embed ] })
+      await interaction.editReply({ embeds: [ embed ] })*/
       const configData_ = fs.readFileSync(configPath, 'utf8');
       const config_ = JSON.parse(configData);
       config_.call_now = false;
       fs.writeFileSync(configPath, JSON.stringify(config_, null, 2));
-    },2500*list.length)
+    },1000*list.length)
   },
 };
