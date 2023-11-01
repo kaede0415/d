@@ -6,7 +6,6 @@ module.exports = {
     description: "コマンド一覧を表示します",
   },
   async execute(interaction) {
-    if(require("config.json").call_now == true) return interaction.reply("現在callが行われています")
     const embed = new MessageEmbed()
     .setTitle("HELP")
     .addField(`= help =`,">>> この画面")

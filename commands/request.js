@@ -29,7 +29,6 @@ module.exports = {
     ],
   },
   async execute(interaction) {
-    if(require("config.json").call_now == true) return interaction.reply("現在callが行われています")
     const id = interaction.options.getString("id");
     if(!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "サーバー管理者しか使えません", ephemeral: true })
     await interaction.deferReply({ ephemeral: true })

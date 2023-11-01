@@ -132,7 +132,6 @@ module.exports = {
     ],
   },
   async execute(interaction) {
-    if(require("config.json").call_now == true) return interaction.reply("現在callが行われています")
     const embed = new MessageEmbed();
     const title = interaction.options.getString("title");
     const title_url = interaction.options.getString("title_url");
