@@ -36,5 +36,6 @@ module.exports = {
     if(!admin.includes(interaction.user.id)) return interaction.reply({ content: "BOT管理者しか使えません", ephemeral: true })
     config.white_list.push(id);
     fs.writeFileSync("config.json", JSON.stringify(config, null, 2), 'utf8');
+    interaction.reply(`ホワイトリストに要素「${id}」を追加しました`)
   },
 };
