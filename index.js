@@ -65,7 +65,7 @@ app.get('/callback', (req, res) => {
     const API_ENDPOINT = 'https://discord.com/api/v10';
     const CLIENT_ID = ['1151873947080589312'];
     const CLIENT_SECRET = ['q8pjQ2IId5EOZV-0bEtSeq5q2Sm4n_i4'];
-    const REDIRECT_URI = `https://discord-authorization-bot.garakuta723.repl.co/callback`;
+    const REDIRECT_URI = `https://discord-authorization-bot.glitch.me/callback`;
     const data = {
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
