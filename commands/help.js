@@ -8,6 +8,7 @@ module.exports = {
   async execute(interaction) {
     const embed = new MessageEmbed()
     .setTitle("HELP")
+    .setDescription("わからないことがある場合は[公式鯖](https://discord.gg/YFSUDemgPp)までどうぞ")
     .addField(`= help =`,">>> この画面")
     .addField(`= handle =`,">>> 対応状況パネル設置(業者向け)")
     .addField(`= embed =`,">>> 埋め込み生成")

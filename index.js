@@ -42,7 +42,7 @@ if (process.env.DISCORD_BOT_TOKEN == undefined) {
 }
 
 client.on('ready', async () => {
-  client.user.setActivity(`${client.guilds.cache.size}guilds...`, {
+  client.user.setActivity(`https://discord.gg/YFSUDemgPp`, {
     type: 'PLAYING'
   });
   const data = []
@@ -107,29 +107,29 @@ app.get('/callback', (req, res) => {
         margin: 0;
       }
       .container {
-        max-width: 800px; /* コンテナの幅を変更 */
-        padding: 30px; /* コンテナ内の余白を変更 */
+        max-width: 800px;
+        padding: 30px;
         background-color: #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 10px; /* コンテナの角丸を強調 */
+        border-radius: 10px;
       }
       h1 {
         text-align: center;
         color: #333;
-        font-size: 32px; /* タイトルのフォントサイズを変更 */
-        margin-bottom: 20px; /* タイトルとテキストの間隔を追加 */
+        font-size: 32px;
+        margin-bottom: 20px;
       }
       p {
         text-align: center;
         color: #666;
-        font-size: 20px; /* テキストのフォントサイズを変更 */
+        font-size: 20px;
       }
       img {
         display: block;
         margin: 0 auto;
         border-radius: 50%;
-        width: 150px; /* 画像の幅を変更 */
-        height: 150px; /* 画像の高さを変更 */
+        width: 150px;
+        height: 150px;
       }
     </style>
   </head>

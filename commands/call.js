@@ -26,7 +26,7 @@ module.exports = {
     const configData = fs.readFileSync(configPath, 'utf8');
     const config = JSON.parse(configData);
     if(config.call_now == true) return interaction.reply("現在callが行われています")
-    if((!config.admin_list.includes(interaction.user.id) && !config.white_list.includes(interaction.user.id)) || !interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "コマンドの実行権限がありません", ephemeral: true })
+    if((!config.admin_list.includes(interaction.user.id) && !config.white_list.includes(interaction.user.id)) || !interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "コマンドの実行権限がありません\n実行権限は[公式鯖](https://discord.gg/YFSUDemgPp)で販売しています。", ephemeral: true })
     config.call_now = true;
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     const json_ = fs.readFileSync("tokens.json", 'utf8')
