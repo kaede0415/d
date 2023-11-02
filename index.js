@@ -42,8 +42,8 @@ if (process.env.DISCORD_BOT_TOKEN == undefined) {
 }
 
 client.on('ready', async () => {
-  client.user.setActivity(`https://discord.gg/YFSUDemgPp`, {
-    type: 'PLAYING'
+  client.user.setActivity(`認証パネル`, {
+    type: 'WATCHING'
   });
   const data = []
   for(const commandName in commands){
