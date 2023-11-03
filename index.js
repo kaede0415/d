@@ -52,6 +52,10 @@ client.on('ready', async () => {
   await client.application.commands.set(data);
   client.user.setStatus("idle");
   console.log(`${client.user.tag} is ready!`);
+  const configData = fs.readFileSync("./config.json", 'utf8');
+  const config = JSON.parse(configData);
+  config.call_now = false;
+  fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
 });
 
 app.get('/callback', (req, res) => {
