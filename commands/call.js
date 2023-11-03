@@ -32,7 +32,7 @@ module.exports = {
     const json_ = fs.readFileSync("tokens.json", 'utf8')
     const jsonData = JSON.parse(json_)
     const list = jsonData.map(obj => Object.keys(obj)[0])
-    const msg = await interaction.reply(`<a:load:959821046498881566>処理中です...`)
+    const msg = await interaction.reply(`<a:load:1169872025066680420>処理中です...`)
     const head = {
       'Authorization': `Bot ${process.env.DISCORD_BOT_TOKEN}`,
       'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ module.exports = {
         .addField("追加済み",`${result[1]}人`)
         .addField("追加失敗",`${result[2]}人`)
         .setColor("RANDOM")
-        await interaction.editReply({ content: "<a:check:959821181719040120>終了", embeds: [ embed ] })
+        await interaction.editReply({ content: "<a:check:1169872086014103553>終了", embeds: [ embed ] })
         const configData_ = fs.readFileSync(configPath, 'utf8');
         const config_ = JSON.parse(configData);
         config_.call_now = false;

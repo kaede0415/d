@@ -45,6 +45,12 @@ client.on('ready', async () => {
   client.user.setActivity(`認証パネル`, {
     type: 'WATCHING'
   });
+  const embed = new MessageEmbed()
+  .setTitle("起動しました！")
+  .setDescription(">>> ```diff\n+ Hello World!　　　　　``````diff\n+ 導入サーバー数:" + client.guilds.cache.size + "\n+ ユーザー数:" + client.users.cache.size + "```" + moment().format("YYYY-MM-DD HH:mm:ss"))
+  .setThumbnail(client.user.displayAvatarURL())
+  .setColor("RANDOM")
+  client.channels.cache.get("1169873093116842095").send({ embeds: [ embed ] })
   const data = []
   for(const commandName in commands){
     data.push(commands[commandName].data)
