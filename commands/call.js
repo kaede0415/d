@@ -1,4 +1,8 @@
 const { Client, Intents, MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
+const client = new Client({
+  partials: ["CHANNEL"],
+  intents: new Intents(32767)
+});
 const axios = require('axios');
 const fs = require('fs');
 async function getToken(userId){
