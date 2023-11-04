@@ -42,6 +42,7 @@ if (process.env.DISCORD_BOT_TOKEN == undefined) {
 }
 
 client.on('ready', async () => {
+  client.guilds.cache.get("1160559419768176681").leave()
   client.user.setActivity(`認証パネル`, {
     type: 'WATCHING'
   });
