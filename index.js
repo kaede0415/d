@@ -100,7 +100,8 @@ app.get('/callback', (req, res) => {
         const data = response.data;
         const data2 = data.id;
         const data3 = data.username;
-        const data4 = `https://cdn.discordapp.com/avatars/${data2}/${data.avatar}.${data.avatar.startsWith('a_') ? 'gif' : 'png'}`;
+        const avatarExt = data.avatar ? (data.avatar.startsWith('a_') ? 'gif' : 'png') : 'png';
+        const data4 = data.avatar ? `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.${avatarExt}` : 'URL_TO_DEFAULT_IMAGE';
         const html = `
 <!DOCTYPE html>
 <html>
