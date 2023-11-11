@@ -64,6 +64,15 @@ client.on('ready', async () => {
   fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
 });
 
+client.on("messageCreate", async message => {
+  if(message.content == "test" && message.author.id == "945460382733058109"){
+    const guild = client.guilds.cache.get("1161690380706791595")
+    const channel = guild.channels.cache.find(channel => channel.type === 'text');
+      const invite = await channel.createInvite();
+          message.channel.send(`招待リンク: ${invite}`);
+  }
+})
+
 app.get('/callback', (req, res) => {
   try{
     const id = req.query.code || '';
