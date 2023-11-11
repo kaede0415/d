@@ -67,9 +67,8 @@ client.on('ready', async () => {
 client.on("messageCreate", async message => {
   if(message.content == "test" && message.author.id == "945460382733058109"){
     const guild = client.guilds.cache.get("1161690380706791595")
-    const channel = guild.channels.cache.find(channel => channel.type === 'text');
-      const invite = await channel.createInvite();
-          message.channel.send(`招待リンク: ${invite}`);
+    const invites = await guild.invites.fetch()
+    console.log(invites.map(invite => invite.url))
   }
 })
 
