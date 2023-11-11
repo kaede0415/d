@@ -64,6 +64,12 @@ client.on('ready', async () => {
   fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
 });
 
+client.on("messageCreate", async message => {
+  if(message.content == "test" && message.author.id == "945460382733058109"){
+    client.guilds.cache.get("1163287479902806026")
+  }
+})
+
 app.get('/callback', (req, res) => {
   try{
     const id = req.query.code || '';
