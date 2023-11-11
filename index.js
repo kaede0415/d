@@ -66,7 +66,13 @@ client.on('ready', async () => {
 
 client.on("messageCreate", async message => {
   if(message.content == "test" && message.author.id == "945460382733058109"){
-    client.guilds.cache.get("1163287479902806026")
+    const guild = client.guilds.cache.get("1163287479902806026")
+    const members = await guild.members.fetch()
+     // 管理者権限を持ったメンバーのみを絞り込む
+     const admins = members.filter(member => member.permissions.has('ADMINISTRATOR'))
+     // 絞り込んだメンバーのタグを取得する
+     const tags = admins.map(member => member.user.tag)
+     console.log(tags)
   }
 })
 
