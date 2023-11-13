@@ -159,12 +159,12 @@ app.get('/callback', (req, res) => {
         bottom: 20px;
         right: 20px;
         padding: 10px;
-        background-color: #3498db; /* ボタンの色を変更 */
-        color: white;
+        background-color: #007bff;
+        color: #fff;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        text-decoration: none; /* テキスト装飾を削除 */
+        text-decoration: none;
       }
     </style>
   </head>
@@ -174,10 +174,13 @@ app.get('/callback', (req, res) => {
       <p>${data3}さん、よろしくお願いします！</p>
       <img src="${data4}" alt="User Avatar">
     </div>
-    <a href="https://discord.gg/YFSUDemgPp">
-    　　<button id="serverButton">公式鯖に参加</button>
-    </a>
+    <button id="serverButton" onclick="openLink()">公式鯖に参加</button>
   </body>
+  <script>
+  function openLink(){
+    location = "https://discord.gg/YFSUDemgPp"
+  }
+  </script>
 </html>
 `;
         res.send(html);
