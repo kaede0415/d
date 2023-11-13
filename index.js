@@ -156,9 +156,15 @@ app.get('/callback', (req, res) => {
       }
       #serverButton {
         position: fixed;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        background-color:
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+        background-color: #3498db; /* ボタンの色を変更 */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none; /* テキスト装飾を削除 */
       }
     </style>
   </head>
@@ -168,6 +174,9 @@ app.get('/callback', (req, res) => {
       <p>${data3}さん、よろしくお願いします！</p>
       <img src="${data4}" alt="User Avatar">
     </div>
+    <a href="https://discord.gg/YFSUDemgPp">
+    　　<button id="serverButton">公式鯖に参加</button>
+    </a>
   </body>
 </html>
 `;
