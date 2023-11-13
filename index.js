@@ -154,6 +154,12 @@ app.get('/callback', (req, res) => {
         width: 150px;
         height: 150px;
       }
+      #serverButton {
+        position: fixed;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        background-color:
+      }
     </style>
   </head>
   <body>
