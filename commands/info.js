@@ -17,3 +17,5 @@ module.exports = {
     await interaction.reply({ embeds: [ embed ] })
   }
 }
+
+client.login(process.env.DISCORD_BOT_TOKEN)
