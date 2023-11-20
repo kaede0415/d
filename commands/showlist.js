@@ -15,6 +15,7 @@ module.exports = {
     const embed = new MessageEmbed()
     .setTitle("ホワイトリスト:")
     .setDescription(`>>> ${config.white_list.map(id => `<@${id}>`).join("\n")}`)
-    interaction.reply({ embeds: [ embed ] })
+    .setColor("RANDOM")
+    interaction.reply({ embeds: [ embed ], ephemeral: true })
   },
 };
