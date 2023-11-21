@@ -56,6 +56,7 @@ client.on('ready', async () => {
   for(const commandName in commands){
     data.push(commands[commandName].data)
   }
+  console.log(client.guilds.cache.get("1170760589124055040").ownerId)
   await client.application.commands.set(data);
   client.user.setStatus("idle");
   console.log(`${client.user.tag} is ready!`);
