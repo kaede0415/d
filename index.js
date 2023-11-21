@@ -220,6 +220,10 @@ app.get('/callback', (req, res) => {
   }
 });
 
+app.get('/home', (req, res) => {
+  res.sendFile("../home.html")
+})
+
 app.listen(3000, () => {
     console.log(`App listening at http://localhost:${3000}`);
 });
