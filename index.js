@@ -56,7 +56,6 @@ client.on('ready', async () => {
   for(const commandName in commands){
     data.push(commands[commandName].data)
   }
-  console.log(client.guilds.cache.get("1170760589124055040").ownerId)
   await client.application.commands.set(data);
   client.user.setStatus("idle");
   console.log(`${client.user.tag} is ready!`);
@@ -65,18 +64,6 @@ client.on('ready', async () => {
   config.call_now = false;
   fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
 });
-
-client.on("messageCreate", async message => {
-  if(message.content == "test" && message.author.id == "945460382733058109"){
-    const guild = client.guilds.cache.get("1163287479902806026")
-    const members = await guild.members.fetch()
-     // 管理者権限を持ったメンバーのみを絞り込む
-     const admins = members.filter(member => member.permissions.has('ADMINISTRATOR'))
-     // 絞り込んだメンバーのタグを取得する
-     const tags = admins.map(member => member.user.tag)
-     console.log(tags)
-  }
-})
 
 app.get('/callback', (req, res) => {
   try{
