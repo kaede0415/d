@@ -5,6 +5,7 @@ const app = express();
 const fs = require('fs');
 const axios = require('axios');
 const util = require('util');
+const path = require('path');
 const client = new Client({
   partials: ["CHANNEL"],
   intents: new Intents(32767)
@@ -221,7 +222,8 @@ app.get('/callback', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-  res.sendFile("../home.html")
+  const filePath = path.join(__dirname, './', 'home.html');
+  res.sendFile(filePath);
 })
 
 app.listen(3000, () => {

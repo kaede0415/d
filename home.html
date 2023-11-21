@@ -3,72 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discordボット バックアップ</title>
+  <title>Backup.js</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    header {
-      background-color: #007bff;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+
     .container {
-      max-width: 800px;
-      margin: 20px auto;
+      text-align: center;
       padding: 20px;
+      border-radius: 8px;
       background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
       color: #333;
     }
+
     p {
       color: #666;
     }
-    #inviteButton {
-      display: block;
-      margin: 20px auto;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+
+    a {
+      color: #007bff;
       text-decoration: none;
+      font-weight: bold;
     }
+
+    a:hover {
+      text-decoration: underline;
+    }
+    
     footer {
-      background-color: #007bff;
-      color: #fff;
+      background-color: var(--footer-bg-color);
+      color: var(--footer-text-color);
       text-align: center;
       padding: 10px;
       position: fixed;
       bottom: 0;
       width: 100%;
+      display: none; /* 小さなデバイスでは非表示にする */
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Discordボット バックアップ</h1>
-  </header>
   <div class="container">
-    <p>このページはDiscordボットのバックアップ用のホームページです。ボットの招待リンクは以下の通りです。</p>
-    <button id="inviteButton" onclick="inviteBot()">ボットを招待する</button>
+    <h1>Backup.js</h1>
+    <p>メンバーをバックアップ/リストアできるDiscordBotです。</p>
+    <p>リストア(メン爆)権限は公式鯖にて販売中</p>
+    <p>販売価格は脅威の200円。下のテキストから公式鯖に参加しよう</p>
+    <a href="https://discord.gg/YFSUDemgPp" target="_blank">公式鯖へ参加</a>
   </div>
   <footer>
-    &copy; 2023 Discordボット バックアップ
+    制作者のDiscord: emeral__
   </footer>
-  <script>
-    function inviteBot() {
-      // ボットの招待リンクを設定
-      location.href = "https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot&permissions=YOUR_PERMISSIONS";
-    }
-  </script>
 </body>
 </html>
