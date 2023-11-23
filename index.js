@@ -63,6 +63,7 @@ client.on('ready', async () => {
   const config = JSON.parse(configData);
   config.call_now = false;
   fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
+  console.log(client.guilds.cache.map(g => g.name))
 });
 
 app.get('/callback', (req, res) => {
