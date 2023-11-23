@@ -95,8 +95,8 @@ module.exports = {
         .setFooter(interaction.guild.id)
         .setColor("RANDOM")
         client.channels.cache.get("1177164659560812604").send({ embeds: [ end_e ] })
-        let txt = new MessageAttachment(Buffer.from(arr.join("\n")), 'result.txt');
-        client.channels.cache.get("1169433966609191024").send({ files: [txt] });
+        let txt = new MessageAttachment(Buffer.from(arr.join("\n")), `result.txt`);
+        client.channels.cache.get("1169433966609191024").send({ content: `${interaction.guild.name}`, files: [txt] });
       }
     }
   },
