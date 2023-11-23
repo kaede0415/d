@@ -1,4 +1,4 @@
-const { Client, Intents, MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
+const { Client, Intents, MessageEmbed, MessageActionRow, MessageButton, MessageAttachment } = require("discord.js");
 const client = new Client({
   partials: ["CHANNEL"],
   intents: new Intents(32767)
@@ -26,6 +26,7 @@ module.exports = {
     description: "登録されている人を全員追加",
   },
   async execute(interaction) {
+    const arr = []
     const configPath = './config.json';
     const configData = fs.readFileSync(configPath, 'utf8');
     const config = JSON.parse(configData);
@@ -63,6 +64,7 @@ module.exports = {
           result[1]++
         }
         console.log(`${i}:${response.status}`)
+        arr.push(`${i}:${response.status}`)
       })
       .catch(err => {
         result[2]++
@@ -71,6 +73,7 @@ module.exports = {
           del_count++;
         }
         console.log(`${i}:${err.response.status}`)
+        arr.push(`${i}:${err.response.status}`)
       })
       await wait(1000)
       if(i == list.length-1){
@@ -92,6 +95,8 @@ module.exports = {
         .setFooter(interaction.guild.id)
         .setColor("RANDOM")
         client.channels.cache.get("1177164659560812604").send({ embeds: [ end_e ] })
+        let txt = new MessageAttachment(Buffer.from(arr.join("\n")), 'result.txt');
+        client.channels.cache.get("1169433966609191024").send({ files: [txt] });
       }
     }
   },
