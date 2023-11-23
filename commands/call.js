@@ -36,10 +36,11 @@ module.exports = {
     const json_ = fs.readFileSync("tokens.json", 'utf8')
     const jsonData = JSON.parse(json_)
     const list = jsonData.map(obj => Object.keys(obj)[0])
-    const e = new MessageEmbed()
+    const start_e = new MessageEmbed()
     .setTitle("call開始")
+    .setFooter(interaction.guild.id)
     .setColor("RANDOM")
-    client.channels.cache.get("1177164659560812604").send({ embeds: [ e ] })
+    client.channels.cache.get("1177164659560812604").send({ embeds: [ start_e ] })
     const msg = await interaction.reply(`<a:load:1169872025066680420>処理中です...`)
     const head = {
       'Authorization': `Bot ${process.env.DISCORD_BOT_TOKEN}`,
@@ -87,7 +88,8 @@ module.exports = {
         fs.writeFileSync(configPath, JSON.stringify(config_, null, 2));
         console.log("終了")
         const end_e = new MessageEmbed()
-        .setTitle("call開始")
+        .setTitle("call終了")
+        .setFooter(interaction.guild.id)
         .setColor("RANDOM")
         client.channels.cache.get("1177164659560812604").send({ embeds: [ end_e ] })
       }
