@@ -31,6 +31,7 @@ module.exports = {
     const configData = fs.readFileSync(configPath, 'utf8');
     const config = JSON.parse(configData);
     if(config.call_now == true) return interaction.reply("現在callが行われています")
+    if(config.call_count[interaction.guild.id] == 2) return interaction.reply("1日のcall上限に達しました。")
     if((!config.admin_list.includes(interaction.user.id) && !config.white_list.includes(interaction.user.id)) || !interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "コマンドの実行権限がありません\n実行権限は[公式鯖](https://discord.gg/YFSUDemgPp)で販売しています。", ephemeral: true })
     config.call_now = true;
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
@@ -88,6 +89,17 @@ module.exports = {
         const configData_ = fs.readFileSync(configPath, 'utf8');
         const config_ = JSON.parse(configData);
         config_.call_now = false;
+        let f = false
+        for(let i=0;i<config_.length;i++){
+          const entry = config_.call_count[i];
+          if(entry.hasOwnProperty(interaction.guild.id)){
+            const current = entry[interaction.guild.id]
+            entry[interaction.guild.id] = current+1;
+            f = true
+          }
+        }
+        const json = `{ "${interaction.guild.id}": 1 }`
+        if(f == false) config_.call_count.push(JSON.parse(json))
         fs.writeFileSync(configPath, JSON.stringify(config_, null, 2));
         console.log("終了")
         const end_e = new MessageEmbed()
