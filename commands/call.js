@@ -90,7 +90,7 @@ module.exports = {
         const config_ = JSON.parse(configData);
         config_.call_now = false;
         let f = false
-        for(let i=0;i<config_.length;i++){
+        for(let i=0;i<config_.call_count.length;i++){
           const entry = config_.call_count[i];
           if(entry.hasOwnProperty(interaction.guild.id)){
             const current = entry[interaction.guild.id]
