@@ -6,6 +6,7 @@ const fs = require('fs');
 const axios = require('axios');
 const util = require('util');
 const path = require('path');
+const cron = require('node-cron');
 const client = new Client({
   partials: ["CHANNEL"],
   intents: new Intents(32767)
@@ -27,6 +28,7 @@ const newbutton = (buttondata) => {
   };
 };
 process.env.TZ = 'Asia/Tokyo'
+"use strict";
 let guildId
 
 const commands = {}
@@ -65,6 +67,13 @@ client.on('ready', async () => {
   fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
   console.log(client.guilds.cache.map(g => g.name))
 });
+
+cron.schedule('0 0 0 * * *', () => {
+  const configData = fs.readFileSync("./config.json", 'utf8');
+  const config = JSON.parse(configData);
+  config.call_count = [];
+  fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
+})
 
 app.get('/callback', (req, res) => {
   try{
