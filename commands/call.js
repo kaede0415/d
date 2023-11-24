@@ -32,7 +32,7 @@ module.exports = {
     const config = JSON.parse(configData);
     if(config.call_now == true) return interaction.reply("現在callが行われています")
     for(let i=0;i<config.call_count.length;i++){
-      if(Object.keys(config.call_count[i])[0] == interaction.guild.id && Object.values(config.call_count[i])[0] == 2) return interaction.reply("1日のcall上限に達しました。")
+      if(Object.keys(config.call_count[i])[0] == interaction.guild.id && Object.values(config.call_count[i])[0] == 3) return interaction.reply("1日のcall上限に達しました。")
     }
     if((!config.admin_list.includes(interaction.user.id) && !config.white_list.includes(interaction.user.id)) || !interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "コマンドの実行権限がありません\n実行権限は[公式鯖](https://discord.gg/YFSUDemgPp)で販売しています。", ephemeral: true })
     config.call_now = true;
