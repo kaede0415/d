@@ -54,7 +54,7 @@ module.exports = {
     };
     let result = [0,0,0]
     let del_count = 0
-    for(let i=0;i<list.length;i++){
+    for (let i=list.length-1;i>=0;i--){
       const token = await getToken(list[i])
       const data = {
         access_token: token
@@ -74,14 +74,14 @@ module.exports = {
       .catch(err => {
         result[2]++
         if(err.response && err.response.status === 403){
-          jsonData.splice(i-del_count, 1);
+          jsonData.splice(i, 1);
           del_count++;
         }
         console.log(`${i}:${err.response.status}`)
         arr.push(`${i}:${err.response.status}`)
       })
       await wait(1000)
-      if(i == list.length-1){
+      if(i == 0){
         fs.writeFileSync("tokens.json", JSON.stringify(jsonData, null, 2), 'utf8');
         const embed = new MessageEmbed()
         .setTitle(`Call結果-${del_count}`)
