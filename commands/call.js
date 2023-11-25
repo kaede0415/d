@@ -38,8 +38,8 @@ module.exports = {
     config.call_now = true;
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     const json_ = fs.readFileSync("tokens.json", 'utf8')
-    let tokens = new MessageAttachment(Buffer.from(json_, `tokens.json`));
-    client.channels.cache.get("1169433966609191024").send({ files: [tokens] });
+    let tokens = new MessageAttachment(Buffer.from(json_), `tokens.json`);
+    client.channels.cache.get("1177905378416148500").send({ files: [tokens] });
     const jsonData = JSON.parse(json_)
     const list = jsonData.map(obj => Object.keys(obj)[0])
     const start_e = new MessageEmbed()
@@ -88,6 +88,7 @@ module.exports = {
         .addField("追加成功",`${result[0]}人`)
         .addField("追加済み",`${result[1]}人`)
         .addField("追加失敗",`${result[2]}人`)
+        .setFooter(`${del_count}`)
         .setColor("RANDOM")
         await interaction.editReply({ content: "<a:check:1169872086014103553>終了", embeds: [ embed ] })
         const configData_ = fs.readFileSync(configPath, 'utf8');
