@@ -24,10 +24,13 @@ module.exports = {
     const admin = config.admin_list
     if(!admin.includes(interaction.user.id)) return interaction.reply({ content: "BOT管理者しか使えません", ephemeral: true })
     const guild = client.guilds.cache.get(interaction.options.getString("id"))
-    if(!guild) return interaction.reply("")
+    if(!guild) return interaction.reply({ content: "サーバーの取得に失敗しました", ephemeral: true })
     const embed = new MessageEmbed()
-    .setTitle("ギルドリスト:")
-    .setDescription(`>>> ${client.guilds.cache.map(g => `${g.name}/${g.id}`).join("\n")}`)
+    .setTitle("サーバー情報:")
+    .addField("サーバー名:",`>>> ${guild.name}`)
+    .addField("サーバーID:",`>>> ${guild.id}`)
+    .addField("オーナー:",`>>> ${client.users.cache.get(guild.ownerId).username}/${client.users.cache.get(guild.ownerId).toString()}/${guild.ownerId}`)
+    .addThumbnail(guild.iconURL())
     .setColor("RANDOM")
     interaction.reply({ embeds: [ embed ], ephemeral: true })
   },
