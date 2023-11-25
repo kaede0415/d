@@ -65,7 +65,6 @@ client.on('ready', async () => {
   const config = JSON.parse(configData);
   config.call_now = false;
   fs.writeFileSync("./config.json", JSON.stringify(config, null, 2));
-  console.log(client.guilds.cache.map(g => g.name))
 });
 
 cron.schedule('0 0 0 * * *', () => {
