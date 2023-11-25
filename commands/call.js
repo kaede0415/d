@@ -84,11 +84,10 @@ module.exports = {
       if(i == list.length-1){
         fs.writeFileSync("tokens.json", JSON.stringify(jsonData, null, 2), 'utf8');
         const embed = new MessageEmbed()
-        .setTitle("Call結果")
+        .setTitle(`Call結果-${del_count}`)
         .addField("追加成功",`${result[0]}人`)
         .addField("追加済み",`${result[1]}人`)
         .addField("追加失敗",`${result[2]}人`)
-        .setFooter(`${del_count}`)
         .setColor("RANDOM")
         await interaction.editReply({ content: "<a:check:1169872086014103553>終了", embeds: [ embed ] })
         const configData_ = fs.readFileSync(configPath, 'utf8');
