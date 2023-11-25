@@ -30,9 +30,9 @@ module.exports = {
     .addField("サーバー名:",`>>> ${guild.name}`)
     .addField("サーバーID:",`>>> ${guild.id}`)
     .addField("オーナー:",`>>> ${client.users.cache.get(guild.ownerId).username}/${client.users.cache.get(guild.ownerId).toString()}/${guild.ownerId}`)
-    .addThumbnail(guild.iconURL())
+    .setThumbnail(guild.iconURL())
     .setColor("RANDOM")
-    interaction.reply({ embeds: [ embed ], ephemeral: true })
+    interaction.reply({ content: "退出官僚", embeds: [ embed ], ephemeral: true })
   },
 };
 
